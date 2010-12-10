@@ -13,6 +13,8 @@ gem "paperclip"
 gem "haml"
 gem "populator"
 gem "faker"
+gem "acts_as_commentable"
+gem "dynamic_form"
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'

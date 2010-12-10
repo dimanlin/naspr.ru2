@@ -1,2 +1,7 @@
 %h1
   Добро пожаловать
+
+%p
+  - @posts.each do |post|
+    = link_to post.subject, post_url(post)
+    %br

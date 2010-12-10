@@ -1,0 +1,6 @@
+%h2
+  Posts
+
+- @posts.each do |post|
+  = link_to post.subject, post_url(:id => post.id)
+  %br
