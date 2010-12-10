@@ -1,0 +1,27 @@
+production:
+  encoding: utf8
+  adapter: postgresql
+  username: postgres
+  database: production_naspr_ru
+  template: template0
+
+development:
+  encoding: utf8
+  adapter: postgresql
+  username: postgres
+  database: development_naspr_ru
+  template: template0
+
+test:
+  encoding: utf8
+  adapter: postgresql
+  username: postgres
+  database: test_naspr_ru
+  template: template0
+
+cucumber:
+  encoding: utf8
+  adapter: postgresql
+  username: postgres
+  database: test_naspr_ru
+  template: template0
