@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.recent
+    @comments = @post.comments.recent.order.find(:all, :order => "created_at")
     @comment = @post.comments.new
   end
 
@@ -14,15 +14,5 @@ class PostsController < ApplicationController
     
   end
 
-  def create_comment
-    @comment = Comment.create(params[:comment])
-    if @comment.save
-      redirect_to :back
-    else
-      @post = Post.find(params[:id])
-      @comments = @post.comments.recent
-      render :action => :show
-    end
-  end
 
 end

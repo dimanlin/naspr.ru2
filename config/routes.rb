@@ -1,9 +1,7 @@
 NasprRu2::Application.routes.draw do
-  resources :posts do 
-    member do
-      post "create_comment"
-    end
-  end
+
+  resources :posts
+  resources :comments
 
   root :to => "home#show"
 
