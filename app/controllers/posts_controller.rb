@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.recent.order.find(:all, :order => "created_at")
+    @comments = @post.comments.recent
     @comment = @post.comments.new
   end
 
