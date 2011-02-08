@@ -6,7 +6,10 @@ class Comment < ActiveRecord::Base
 
   default_scope :order => 'created_at DESC'
 
-  validates_presence_of :comment
+  scope :vote_true, :conditions => {:vote => true}
+  scope :vote_false, :conditions => {:vote => false}
+
+  validates_presence_of :comment, :vote
 
   # NOTE: install the acts_as_votable plugin if you
   # want user to vote on the quality of comments.

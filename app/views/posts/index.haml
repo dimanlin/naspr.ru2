@@ -1,6 +1,27 @@
 %h2
-  Posts
+  All posts
 
-- @posts.each do |post|
-  = link_to post.subject, post_url(:id => post.id)
-  %br
+
+= will_paginate @posts
+%table{:border => 1}
+  %tr
+    %td
+      Subject
+    %td
+      Created at
+    %td
+      За
+    %td
+      Против
+    - @posts.each do |post|
+      %tr
+        %td
+          = link_to post.subject, post_url(post)
+        %td
+          = post.created_at
+        %td
+          = post.comments.vote_true.size
+        %td
+          = post.comments.vote_false.size
+
+= will_paginate @posts

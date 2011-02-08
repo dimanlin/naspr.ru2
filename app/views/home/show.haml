@@ -7,9 +7,13 @@
       Subject
     %td
       Created at
+    %td
+      Number comments
     - @posts.each do |post|
       %tr
         %td
           = link_to post.subject, post_url(post)
         %td
           = post.created_at
+        %td
+          = post.comments.size

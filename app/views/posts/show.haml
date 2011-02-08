@@ -9,11 +9,29 @@
 = form_for @comment do |f|
   = f.error_messages
   = f.hidden_field :commentable_id
+  = f.radio_button :vote, :true
+  За
+  = f.radio_button :vote, :false
+  Против
   = f.text_area :comment, :size => "60x20"
   %br
   = f.submit "Отправить"
 
-- unless @comments.blank?
-  - @comments.each do |comment|
-    %br
-    = comment.comment
+%table{:border => 1}
+  %tr
+    %td
+      Те что за 
+    %td
+      Те что против
+  %tr
+    %td
+      - unless @true_comments.blank?
+        - @true_comments.each do |comment|
+          %br
+          = comment.comment
+    %td
+      - unless @false_comments.blank?
+        - @false_comments.each do |comment|
+          %br
+          = comment.comment
+

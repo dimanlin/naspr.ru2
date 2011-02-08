@@ -7,6 +7,8 @@ class CommentsController < ApplicationController
       redirect_to @post
     else
       @comments = @post.comments.recent
+      @true_comments = @post.comments.vote_true
+      @false_comments = @post.comments.vote_false
       render :file => "/posts/show.haml"
     end
   end
