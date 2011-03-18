@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @true_comments = @post.comments.vote_true
     @false_comments = @post.comments.vote_false
-    @comment = @post.comments.new
+    @comment = @post.comments.new(:vote => true)
   end
 
   def create
