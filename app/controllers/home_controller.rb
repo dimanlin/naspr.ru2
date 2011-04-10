@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  def show
+  def index
     @posts = Post.main_page
   end
 

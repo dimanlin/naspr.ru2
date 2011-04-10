@@ -1,0 +1,30 @@
+ru:
+  button:
+    sign_up: Зарегистрироваться
+  view:
+    main_menu:
+      main_page: Главная страница
+      posts: Споры
+      registration: Регистрация
+      logout: Выйти
+  errors:
+    messages:
+      not_saved: Удовлетворите приведённые ниже замечания
+  activerecord:
+    model:
+      user: Пользователи
+    attributes:
+      user:
+        email: "Электронная почта:"
+        password: "Пароль:"
+        password_confirmation: "Подтвердите пароль:"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: не может быть пустым
+              confirmation: не совпал
+              too_short: слишком короткий
+            email:
+              taken: кем-то занята

@@ -7,7 +7,15 @@
   = javascript_include_tag :defaults
   = csrf_meta_tag
   %body
-    = link_to "Main page", root_url
-    = link_to "Posts", posts_url
+    .notice
+      = notice
+    .alert
+      = alert
+    = link_to t("view.main_menu.main_page"), root_url
+    = link_to t("view.main_menu.posts"), posts_url
+    - unless current_user
+      = link_to t("view.main_menu.registration"), new_user_registration_path
+    - else
+      = link_to t("view.main_menu.logout"), destroy_user_session_path
     = yield
 

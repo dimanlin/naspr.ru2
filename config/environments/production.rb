@@ -46,4 +46,9 @@ NasprRu2::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  #    1. Setup default url options for your specific environment. Here is an
+  #         example of development environment:
+  config.action_mailer.default_url_options = { :host => 'www.naspr.ru' }
+
 end

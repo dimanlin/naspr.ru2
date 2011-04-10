@@ -1,22 +1,27 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.4'
+gem 'rails', '3.0.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'authlogic'
 gem 'capistrano'
 gem "pg"
 gem "acl9"
 gem "paperclip"
 gem "haml"
 gem "populator"
-gem "faker"
+gem "ffaker"
 gem "acts_as_commentable"
 gem "dynamic_form"
 gem "will_paginate"
 gem "enumerated_attribute"
+gem "cucumber"
+gem 'cucumber-rails', "0.4.0"
+gem "capybara"
+gem "database_cleaner"
+gem "devise"
+gem "launchy"
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'

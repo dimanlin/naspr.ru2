@@ -22,5 +22,10 @@ NasprRu2::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  #    1. Setup default url options for your specific environment. Here is an
+  #         example of development environment:
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
 end
 
