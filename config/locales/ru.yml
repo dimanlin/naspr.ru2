@@ -1,5 +1,8 @@
 ru:
   button:
+    devise:
+      send_me_reset_password_instructions: Выслать мне инструкции по востановлению пароля
+      change_my_password: Сменить мой пароль
     sign_up: Зарегистрироваться
   view:
     main_menu:
@@ -7,6 +10,23 @@ ru:
       posts: Споры
       registration: Регистрация
       logout: Выйти
+      sign_in: Войти
+    devise:
+      sessions:
+        new: Авторизация
+        enter: Войти
+        sign_up: Зарегистрироваться
+      registrations:
+        sign_up: Регистрация
+      passwords:
+        foget_password: "Забыли пароль?"
+        change_your_password: "Смена пароля"
+        confirm_password: "Подтверждение пароля:"
+        new_password: "Новый пароль:"
+      confirmations:
+        didn_receive_confirmation_instruction: "Вы не получали инструкции по подтверждению?"
+      unlocks:
+        didn_receive_unlock_instructions: "Вы не получали инструкции по разблокировке?"
   errors:
     messages:
       not_saved: Удовлетворите приведённые ниже замечания

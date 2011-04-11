@@ -19,7 +19,7 @@ ru:
       inactive: 'Ваш аккаунт ещё небыл активирован.'
     sessions:
       user:
-        signed_in: 'Вы успешно зашли на сайт.'
+        signed_in: 'Добро пожаловать на сервис мнений и споров.'
         signed_out: 'Вы успешно вышли.'
     passwords:
       user:
@@ -42,7 +42,7 @@ ru:
       password:
         edit:
           headers:
-            confirm: Подтверждение пароля 
+            confirm: Подтверждение пароля
     mailer:
       confirmation_instructions:
         subject: 'Добро пожаловать на www.naspr.ru'

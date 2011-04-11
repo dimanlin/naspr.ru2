@@ -23,6 +23,18 @@ NasprRu2::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
+  config.action_mailer.delivery_method = :smtp
+  # Defaults to:
+  config.action_mailer.smtp_settings = { 
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => "pp.adenin.ru",
+    :user_name            => "dimanlin0",
+    :password             => "gs6cvuq00",
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+
   #    1. Setup default url options for your specific environment. Here is an
   #         example of development environment:
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }

@@ -22,6 +22,8 @@ gem "capybara"
 gem "database_cleaner"
 gem "devise"
 gem "launchy"
+gem 'recaptcha', :require => 'recaptcha/rails'
+gem "email_spec"
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'

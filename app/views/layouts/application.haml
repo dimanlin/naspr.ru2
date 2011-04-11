@@ -15,6 +15,7 @@
     = link_to t("view.main_menu.posts"), posts_url
     - unless current_user
       = link_to t("view.main_menu.registration"), new_user_registration_path
+      = link_to t("view.main_menu.sign_in"), new_user_session_path
     - else
       = link_to t("view.main_menu.logout"), destroy_user_session_path
     = yield

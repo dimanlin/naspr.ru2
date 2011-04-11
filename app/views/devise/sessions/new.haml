@@ -1,0 +1,18 @@
+%h2
+  = t("view.devise.sessions.new")
+
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  %p
+    = f.label :email
+    %br
+    = f.email_field :email
+
+  %p
+    = f.label :password
+    %br
+    = f.password_field :password
+
+  %p
+    = f.submit  t("view.devise.sessions.enter")
+
+= render :partial => "devise/shared/links"
