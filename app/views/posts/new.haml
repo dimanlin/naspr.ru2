@@ -1,0 +1,24 @@
+%h2
+  = t("view.posts.new")
+
+= form_for @post do |f|
+  = f.error_messages
+
+  %p
+    = f.label :subject
+    %br
+    = f.text_field :subject
+
+  %p
+    = f.label :body
+    %br
+    = f.text_area :body
+
+  %p
+    %label
+      = t("view.posts.rule")
+    %br
+    = f.check_box :rule
+
+  %p
+    = f.submit t("button.create")

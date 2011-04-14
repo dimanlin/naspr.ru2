@@ -1,22 +1,53 @@
 !!!
 %html
   %head
-    %title
-      NasprRu2
-  = stylesheet_link_tag :all
-  = javascript_include_tag :defaults
-  = csrf_meta_tag
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "Общественное мнение, истина, прав ли я, споры, мнения, дебаты, мнение народа, коллективные споры", :name => "keywords"}/
+    %meta{:content => "Общественное мнение, истина, прав ли я, споры, мнения, дебаты, мнение народа, коллективные споры", :name => "description"}/
+    = stylesheet_link_tag("main.css")
+    %title Общественное мнение, истина, прав ли я, споры, мнения, дебаты, мнение народа, коллективные споры
   %body
+    / Yandex.Metrika
+    %script{:src => "//mc.yandex.ru/metrika/watch.js", :type => "text/javascript"}
+    :javascript
+      try { var yaCounter791682 = new Ya.Metrika(791682); } catch(e){}
+      %noscript
+      %div{:style => "position:absolute"}
+        %img{:alt => "", :src => "//mc.yandex.ru/watch/791682"}/
+    / /Yandex.Metrika
+    %header
+      .logo
+        %h1
+          %a{:href => "http://naspr.ru/"}
+            %img{:alt => "Мнения народа", :src => "images/naspr.jpg"}/
+      .header
+        %h1 Общественное мнение, прав ли я
+      .search
+        %form{:action => "http://naspr.ru/debates/search", :method => "get"}
+          %input#text.input_search{:gtbfieldid => "171", :name => "text", :type => "text"}/
+          %input.search_image{:alt => "Поиск", :src => "images/search_button.png", :type => "image"}/
+      - unless current_user
+        .enter
+          = link_to t("view.main_menu.sign_in"), new_user_session_path
+        .registration
+          = link_to t("view.main_menu.registration"), new_user_registration_path
+      - else
+        .registration
+          = link_to t("view.main_menu.logout"), destroy_user_session_path
     .notice
       = notice
     .alert
       = alert
-    = link_to t("view.main_menu.main_page"), root_url
-    = link_to t("view.main_menu.posts"), posts_url
-    - unless current_user
-      = link_to t("view.main_menu.registration"), new_user_registration_path
-      = link_to t("view.main_menu.sign_in"), new_user_session_path
-    - else
-      = link_to t("view.main_menu.logout"), destroy_user_session_path
-    = yield
+    %nav
+      - if current_user
+        = link_to t("view.main_menu.new_post"), new_post_path
+        = link_to t("view.main_menu.my_posts"), posts_path(:type => current_user.email)
+   
+    .content
+      = yield
+    %footer
+      .footer_menu
+        %a{:href => "http://naspr.ru/page/advertising"} Реклама
+        %a{:href => "http://naspr.ru/contacts"} Контакты
+      .clear
 

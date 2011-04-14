@@ -1,19 +1,109 @@
-%h1
-  Добро пожаловать
+%table.main_table
+  %tbody
+    %tr
+      %td.valign
+        %section
+        %h1.header_h1 
+          = t("h1.last_post")
+        %table.list_lastdebate
+          %tbody
+            - @posts.each do |post|
+              %tr
+                %td{:colspan => "2"}
+                  = link_to post.subject, post_path(post)
+                  (
+                  %span.trueansver> 1072
+                  |
+                  %span.falseansver> 5202
+                  )
+            %tr
+              %td.hightred
+                = link_to t("link.new_post"), new_post_path
+              %td.hightblue
+                = link_to t("link.posts"), posts_path
 
-%table{:border => 1}
-  %tr
-    %td
-      Subject
-    %td
-      Created at
-    %td
-      Number comments
-    - @posts.each do |post|
-      %tr
-        %td
-          = link_to post.subject, post_url(post)
-        %td
-          = post.created_at
-        %td
-          = post.comments.size
+
+      %td.valign
+        %section
+        %h1.header_h1 Последние спор
+        %h2
+          %a.color_h2_a{:href => "http://naspr.ru/debates/11"} МАРИХУАНА БОЖЬЯ ТРАВКА
+        %div
+          .avatar
+            %img{:alt => "avatar", :src => "images/avatar2.jpg"}/
+          .text
+            МАРИХУАНА ЛЕКАРСТВО ОТ БОЛЕЗНЕЙ ЗЛО
+            ЭТО ПРИСВОЕНИЯ ЧЮЖОГО ИМУЩЕСТВА(РАЗВАРОВЫВАНИЕ РАСКУЛАЧЕВАНИЕ ИЗЪЯТИЯ И
+            УНИЧТОЖЕНИЕ ИМУЩЕСТВА ИЛИ ВЕЩЕСТВА)
+        .clear
+        %div
+          .ansvertruenum
+            %span.za
+              = t("view.home.support")
+            %span.numvoited 1072
+          .ansverfalsenum
+            %span.protiv
+              = t("view.home.not_support")
+            %span.numvoited 5202
+        .clear
+        .golosovat2
+          .dot_link
+            = link_to t("link.voit")
+        .voited_form
+          = form_for @comment do |f|
+            %span.zasmall
+              = t("view.home.supporting")
+            = f.radio_button :vote, "true"
+            %span.protivsmall 
+              = t("view.home.against")
+            = f.radio_button :vote, "false"
+            %br/
+            = t("view.home.ansver")
+            = f.text_area :comment
+            %br/
+            = f.submit t("view.home.post")
+        .ansver
+          .avataranver
+            %div
+              %img{:alt => "asdasd", :src => "images/avatar2.jpg"}/
+            .rezansver
+              За
+          .text
+            %a{:href => "http://www.visitknoxohio.org/cvb/index.php?article=lodging"} phentermine us online consultation
+            ,  afq ,
+            %a{:href => "http://visitknoxohio.org/cvb/index.php?article=culturallife"} cialis vs other ed products
+            ,  =-O ,
+            %a{:href => "http://www.visitknoxohio.org/"} buy xanax overnght
+            ,  =-O ,
+            %a{:href => "http://www.knowquickbooks.com/DVD_lead_collection/quickbooks_training/index.html?source=UAC_free_resource_page&amp;campaign=QuickBooks+Interest"} phentermine side effects pregnancy
+            ,  mvjrq ,
+            %a{:href => "http://www.olliebown.com/svn/beads/Trunk/Beads/src/beads_main/net/beadsproject/beads/ugens/OscillatorBank.java"} buy soma cheap buy soma
+            ,  3442 ,
+            %a{:href => "http://www.skatebarn2.com/featured.php?1-1=572"} adipex and india
+            ,  349 ,
+            %a{:href => "http://www.visitknoxohio.org/%7Evisitkno/index.php?article=lodging"} 10mg vs 20mg cialis
+            ,  kmoe ,
+            %a{:href => "http://www.roverrescue.com/page/med-4080/"} does alka seltzer enhance viagra
+            ,  139 ,
+            %a{:href => "http://www.roverrescue.com/page/med-1365/"} tramadol vitamin d
+            ,  2259 ,
+        .clear
+        .ansver
+          .avataranver
+            %div
+              %img{:alt => "asdasd", :src => "images/avatar2.jpg"}/
+            .rezansverfalse
+              Против
+          .text
+            %a{:href => "http://www.niftynurse.com/index.php?cPath=23_49"} phentermine and luvox
+            ,  twyfo ,
+            %a{:href => "http://www.niftynurse.com/index.php?cPath=23_26"} cialis viagra and levitra
+            ,  73375 ,
+            %a{:href => "http://www.roverrescue.com/page/med-4094/"} buy cialis 32
+            ,  matoaz ,
+            %a{:href => "http://www.skatebarn2.com/private-lessons.html"} soma pill info
+            ,  ytgcqj ,
+            %a{:href => "http://www.olliebown.com/svn/beads/Trunk/Beads/src/beads_examples/net/beadsproject/beads/events/UsingTriggers.java"} adipex safety
+            ,  awcmlz ,
+        .clear
+
