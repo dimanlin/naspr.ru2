@@ -1,4 +1,6 @@
 ru:
+  image:
+    alt: Аватар
   link:
     voit: Высказаться
     new_post: Создать своё мнение 
@@ -7,6 +9,8 @@ ru:
     last_post: Последние мнения
   notice:
     post_create: Ваше мнение добавленно
+    comment_create: Ваш комментарий добавлен
+    captcha: Не верные значения в проверочной форме
   button:
     post: Опубликовать
     devise:
@@ -19,6 +23,7 @@ ru:
       support: "Поддержали:"
       not_support: "Не поддержали:"
       supporting: Поддерживаю
+      for: За
       against: Против
       ansver: Ответ
     posts:
@@ -58,6 +63,8 @@ ru:
     model:
       user: Пользователи
     attributes:
+      comment:
+        vote: ""
       user:
         email: "Электронная почта:"
         password: "Пароль:"
@@ -68,6 +75,10 @@ ru:
         rule: ""
     errors:
       models:
+        comment:
+          attributes:
+            vote:
+              blank: Вы должны проголосовать
         user:
           attributes:
             password:

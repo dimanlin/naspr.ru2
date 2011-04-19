@@ -691,9 +691,19 @@ footer {
 }
 
 .voited_form {
-  margin-top:10px;
+  margin-top:20px;
   display:none;
 }
+
+.voited_form textarea {
+  width: 100%;
+}
+
+.voited_form table {
+  width: 100%;
+}
+
+
 
 .message2 {
   width:600px;
@@ -736,7 +746,13 @@ footer {
   font-size:12px;
   display:inline;
   cursor:pointer;
+  text-decoration: none;
 }
+
+.dot_link a {
+  text-decoration: none;
+}
+
 
 .clear {
   clear:both;
@@ -902,6 +918,10 @@ header {
 
 .hightblue {
   padding-top:15px;
+  text-align:right;
+}
+
+.text_align_right {
   text-align:right;
 }
 

@@ -24,86 +24,72 @@
 
 
       %td.valign
-        %section
-        %h1.header_h1 Последние спор
-        %h2
-          %a.color_h2_a{:href => "http://naspr.ru/debates/11"} МАРИХУАНА БОЖЬЯ ТРАВКА
-        %div
-          .avatar
-            %img{:alt => "avatar", :src => "images/avatar2.jpg"}/
-          .text
-            МАРИХУАНА ЛЕКАРСТВО ОТ БОЛЕЗНЕЙ ЗЛО
-            ЭТО ПРИСВОЕНИЯ ЧЮЖОГО ИМУЩЕСТВА(РАЗВАРОВЫВАНИЕ РАСКУЛАЧЕВАНИЕ ИЗЪЯТИЯ И
-            УНИЧТОЖЕНИЕ ИМУЩЕСТВА ИЛИ ВЕЩЕСТВА)
-        .clear
-        %div
-          .ansvertruenum
-            %span.za
-              = t("view.home.support")
-            %span.numvoited 1072
-          .ansverfalsenum
-            %span.protiv
-              = t("view.home.not_support")
-            %span.numvoited 5202
-        .clear
-        .golosovat2
-          .dot_link
-            = link_to t("link.voit")
-        .voited_form
-          = form_for @comment do |f|
-            %span.zasmall
-              = t("view.home.supporting")
-            = f.radio_button :vote, "true"
-            %span.protivsmall 
-              = t("view.home.against")
-            = f.radio_button :vote, "false"
-            %br/
-            = t("view.home.ansver")
-            = f.text_area :comment
-            %br/
-            = f.submit t("view.home.post")
-        .ansver
-          .avataranver
-            %div
-              %img{:alt => "asdasd", :src => "images/avatar2.jpg"}/
-            .rezansver
-              За
-          .text
-            %a{:href => "http://www.visitknoxohio.org/cvb/index.php?article=lodging"} phentermine us online consultation
-            ,  afq ,
-            %a{:href => "http://visitknoxohio.org/cvb/index.php?article=culturallife"} cialis vs other ed products
-            ,  =-O ,
-            %a{:href => "http://www.visitknoxohio.org/"} buy xanax overnght
-            ,  =-O ,
-            %a{:href => "http://www.knowquickbooks.com/DVD_lead_collection/quickbooks_training/index.html?source=UAC_free_resource_page&amp;campaign=QuickBooks+Interest"} phentermine side effects pregnancy
-            ,  mvjrq ,
-            %a{:href => "http://www.olliebown.com/svn/beads/Trunk/Beads/src/beads_main/net/beadsproject/beads/ugens/OscillatorBank.java"} buy soma cheap buy soma
-            ,  3442 ,
-            %a{:href => "http://www.skatebarn2.com/featured.php?1-1=572"} adipex and india
-            ,  349 ,
-            %a{:href => "http://www.visitknoxohio.org/%7Evisitkno/index.php?article=lodging"} 10mg vs 20mg cialis
-            ,  kmoe ,
-            %a{:href => "http://www.roverrescue.com/page/med-4080/"} does alka seltzer enhance viagra
-            ,  139 ,
-            %a{:href => "http://www.roverrescue.com/page/med-1365/"} tramadol vitamin d
-            ,  2259 ,
-        .clear
-        .ansver
-          .avataranver
-            %div
-              %img{:alt => "asdasd", :src => "images/avatar2.jpg"}/
-            .rezansverfalse
-              Против
-          .text
-            %a{:href => "http://www.niftynurse.com/index.php?cPath=23_49"} phentermine and luvox
-            ,  twyfo ,
-            %a{:href => "http://www.niftynurse.com/index.php?cPath=23_26"} cialis viagra and levitra
-            ,  73375 ,
-            %a{:href => "http://www.roverrescue.com/page/med-4094/"} buy cialis 32
-            ,  matoaz ,
-            %a{:href => "http://www.skatebarn2.com/private-lessons.html"} soma pill info
-            ,  ytgcqj ,
-            %a{:href => "http://www.olliebown.com/svn/beads/Trunk/Beads/src/beads_examples/net/beadsproject/beads/events/UsingTriggers.java"} adipex safety
-            ,  awcmlz ,
-        .clear
+        - if @last_post
+          %section
+          %h1.header_h1 Последние спор
+          %h2
+            = link_to @last_post.subject, post_url(@last_post), :class => "color_h2_a"
+          %div
+            - if @last_post.user.nil? && !@last_post.user.avatar?
+              .avatar
+                = image_tag @last_post.user.avatar.url, :alt => t("link.avatar")
+            .text
+              = @last_post.body
+          .clear
+          %div
+            .ansvertruenum
+              %span.za
+                = t("view.home.support")
+              %span.numvoited 1072
+            .ansverfalsenum
+              %span.protiv
+                = t("view.home.not_support")
+              %span.numvoited 5202
+          .clear
+          .golosovat2
+            .dot_link
+              = link_to t("link.voit"), "#", :id => "voit_link"
+          - if @comment
+            .voited_form
+              = form_for @comment do |f|
+                = f.hidden_field :commentable_id
+                %table
+                  %tr
+                    %td
+                      = f.radio_button :vote, "true"
+                      %span.zasmall
+                        = t("view.home.supporting")
+                    %td{:class => "text_align_right"}
+                      %span.protivsmall 
+                        = t("view.home.against")
+                      = f.radio_button :vote, "false"
+                  %tr
+                    %td{:colspan => 2}
+                      %br/
+                      = t("view.home.ansver")
+                      = f.text_area :comment
+                      %br/
+                  - unless current_user
+                    %tr 
+                      %td{:colspan => 2}
+                        = recaptcha_tags
+                  %tr 
+                    %td{:colspan => 2}
+                      = f.submit t("button.post")
+          - if @comments
+            - @comments.each do |comment|
+              .ansver
+                .avataranver
+                  - if comment.user && comment.user.avatar?
+                    %div
+                      = image_tag comment.user.avatar.url, :alt => t("link.alt")
+                  .rezansverfalse
+                    = human_vote(comment)
+                .text
+                  = h comment.comment
+              .clear
+:javascript 
+  $(document).ready(function() {
+    open_comment()
+  });
 
