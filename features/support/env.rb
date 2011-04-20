@@ -5,6 +5,13 @@
 # files.
 
 require 'cucumber/rails'
+
+# Без этого не работает assert в cucumber
+if RUBY_VERSION =~ /1.8/
+  require 'test/unit/testresult'
+  Test::Unit.run = true
+end
+
 require 'email_spec/cucumber'
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In

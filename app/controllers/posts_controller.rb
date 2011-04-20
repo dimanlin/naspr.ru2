@@ -1,5 +1,9 @@
 class PostsController < ApplicationController
 
+  access_control do
+    allow :user
+  end
+
   def index
     @posts = if params[:type]
       User.find_by_email(params[:type]).posts.paginate(:page => params[:page], :per_page => 10, :order => "created_at DESC")

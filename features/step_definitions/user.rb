@@ -1,3 +1,8 @@
+Допустим /^у пользователь "([^\"]*)" имеет роль "([^\"]*)"$/ do |user_email, role|
+  user = User.find_by_email(user_email)
+  assert user.has_role?(role)
+end
+
 Допустим /^я зашёл как "([^\"]*)"$/ do |user_email|
   Допустим %(я на главной странице)
   И %(я перехожу по ссылке "Войти")

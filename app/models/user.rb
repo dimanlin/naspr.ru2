@@ -11,4 +11,14 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
+  after_save :set_role
+
+  def set_role
+    self.has_role!("user")
+  end
+
+  def avatar?
+    false
+  end
+
 end
