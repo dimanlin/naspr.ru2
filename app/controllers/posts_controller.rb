@@ -1,7 +1,13 @@
 class PostsController < ApplicationController
 
   access_control do
-    allow :user
+    actions :index, :show do
+      allow all
+    end
+
+    actions :create, :new do 
+      allow :user
+    end
   end
 
   def index

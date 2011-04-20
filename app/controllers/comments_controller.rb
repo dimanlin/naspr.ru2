@@ -20,7 +20,9 @@ class CommentsController < ApplicationController
 
   def check_captcha
     unless current_user
-      redirect_to new_user_session_url, :notice => t("notice.captcha") if verify_recaptcha == true
+      if Rails.env.to_s == "production" || Rails.env.to_s == "development"
+        redirect_to :back, :notice => t("notice.captcha") if verify_recaptcha == true
+      end
     end
   end
 
