@@ -20,8 +20,13 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+
     @true_comments = @post.comments.vote_true
+    @num_true_comments = @post.comments.vote_true.size
+
     @false_comments = @post.comments.vote_false
+    @num_false_comments = @post.comments.vote_false.size
+
     @comment = @post.comments.new(:vote => true)
   end
 

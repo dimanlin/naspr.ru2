@@ -21,4 +21,10 @@ class User < ActiveRecord::Base
     false
   end
 
+  # Будет браться дефолтный аватар для пользователя или сам аватар пользователя
+  # если имеется
+  def user_avatar
+    "avatar2.jpg"
+  end
+
 end

@@ -17,4 +17,11 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+
+  # Будет браться дефолтный аватар для пользователя или сам аватар пользователя
+  # если имеется
+  def user_avatar
+    "avatar2.jpg"
+  end
+
 end
