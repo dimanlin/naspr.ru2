@@ -21,13 +21,9 @@
       .logo
         %h1
           %a{:href => "http://naspr.ru/"}
-            %img{:alt => "Мнения народа", :src => "images/naspr.jpg"}/
+            = image_tag "naspr.jpg", :alt => t("alt.opinion_people")
       .header
         %h1 Общественное мнение, прав ли я
-      .search
-        %form{:action => "http://naspr.ru/debates/search", :method => "get"}
-          %input#text.input_search{:gtbfieldid => "171", :name => "text", :type => "text"}/
-          %input.search_image{:alt => "Поиск", :src => "images/search_button.png", :type => "image"}/
       - unless current_user
         .enter
           = link_to t("view.main_menu.sign_in"), new_user_session_path
