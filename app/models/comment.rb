@@ -9,7 +9,8 @@ class Comment < ActiveRecord::Base
   scope :vote_true, :conditions => {:vote => true}
   scope :vote_false, :conditions => {:vote => false}
 
-  validates_presence_of :comment, :vote
+  validates_presence_of :comment
+  validates_inclusion_of :vote, :in => [true, false]
 
   # NOTE: install the acts_as_votable plugin if you
   # want user to vote on the quality of comments.

@@ -9,8 +9,34 @@
   .clear
 .rezansverlist
   .golosovat2
-    %a{:href => "http://127.0.0.1:3000/debates/1/comments/new"} Голосовать
+    = link_to t("link.voit"), "#", :id => "voit_link"
   .clear
+.voited_form
+  = form_for @comment do |f|
+    = f.hidden_field :commentable_id
+    %table
+      %tr
+        %td
+          = f.radio_button :vote, "true"
+          %span.zasmall
+            = t("view.home.supporting")
+        %td{:class => "text_align_right"}
+          %span.protivsmall 
+            = t("view.home.against")
+          = f.radio_button :vote, "false"
+      %tr
+        %td{:colspan => 2}
+          %br/
+          = t("view.home.ansver")
+          = f.text_area :comment
+          %br/
+      - unless current_user
+        %tr 
+          %td{:colspan => 2}
+            = recaptcha_tags
+      %tr 
+        %td{:colspan => 2}
+          = f.submit t("button.post")
 .rezansvershow
   .zaleft
     %span.colorza За:
@@ -40,4 +66,7 @@
                   = image_tag comment.user_avatar, :alt => t("avatar")
               = comment.comment
               .clear
-
+:javascript
+  $(document).ready(function() {
+    open_comment()
+  })
