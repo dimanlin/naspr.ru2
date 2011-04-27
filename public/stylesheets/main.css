@@ -6,6 +6,13 @@ html, body {
 	font-size:14px;
 }
 
+.notice {
+  width: 100%;
+  background-color: yellow;
+  height:30px;
+  margin-left 10px;
+}
+
 a img {
   border:none;
 }
@@ -35,9 +42,6 @@ a img {
   margin-top:20px;
 }
 
-.contact_form_table td {
-  vertical-align:top;
-}
 
 .phone span {
   color:black;

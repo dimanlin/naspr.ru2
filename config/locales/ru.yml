@@ -1,4 +1,11 @@
 ru:
+  submit:
+    send: Отправить
+  select:
+    questions: Общие вопросы
+    error: Ошибка
+    improving: Улудшение
+    advertising: Реклама
   rescue_from:
     acl9: Вам необходимо авторизоваться, для доступа к этому разделу
   image:
@@ -13,6 +20,7 @@ ru:
   h1:
     last_post: Последние мнения
   notice:
+    contact_save: Сообщение отправленно
     post_create: Ваше мнение добавленно
     comment_create: Ваш комментарий добавлен
     captcha: Не верные значения в проверочной форме
@@ -78,8 +86,23 @@ ru:
         subject: Тема
         body: Мнение
         rule: ""
+      contact:
+        sender: "Полное имя:"
+        email: "Электронная почта:"
+        contact_type: "Тип обращения:"
+        body: "Обращение:"
     errors:
       models:
+        contact:
+          attributes:
+            sender:
+              blank: не может быть пустым
+            email: 
+              blank: не может быть пустым
+            contact_type:
+              blank: не может быть пустым
+            body:
+              blank: не может быть пустым
         comment:
           attributes:
             vote:

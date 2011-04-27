@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110414000228) do
+ActiveRecord::Schema.define(:version => 20110427052926) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(:version => 20110414000228) do
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "contacts", :force => true do |t|
+    t.string   "sender"
+    t.text     "body"
+    t.string   "contact_type"
+    t.string   "email"
+    t.datetime "read_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "subject"

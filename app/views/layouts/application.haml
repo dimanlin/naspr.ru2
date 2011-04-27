@@ -34,6 +34,7 @@
           = link_to t("view.main_menu.logout"), destroy_user_session_path
     .notice
       = notice
+      asdfasdfasdfasdfasdfasdfasdf
     .alert
       = alert
     %nav
@@ -46,6 +47,6 @@
     %footer
       .footer_menu
         %a{:href => "http://naspr.ru/page/advertising"} Реклама
-        %a{:href => "http://naspr.ru/contacts"} Контакты
+        = link_to "Контакты", new_contacts_path
       .clear
 
