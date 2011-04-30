@@ -1,0 +1,38 @@
+%h1.header_h1 Контакты
+= form_for @contact do |f|
+  = f.error_messages
+  %table.contact_form_table
+    %tbody
+      %tr
+        %td
+          = f.label :sender
+        %td
+          = f.text_field :sender, :class => "input", :size => 30
+        %td.telimage{:rowspan => "2"}
+          = image_tag "tel.jpg"
+      %tr
+        %td
+          = f.label :email
+        %td
+          = f.text_field :email, :size => 30, :class => "input"
+      %tr
+        %td
+          = f.label :contact_type
+        %td{:colspan => "2"}
+          = f.select :contact_type, options_for_select(Contact::TYPE_CONTACT)
+
+      %tr
+        %td
+          = f.label :body
+        %td{:colspan => "2"}
+          = f.text_area :body, :cols => 20, :rows => 10, :class => "textarea"
+      %tr
+        %td{:colspan => "3"}
+          = f.submit t("submit.send"), :class => "right_submit"
+.phone
+  %address
+    Контактный телефон:
+    %span 8-953-704-00-87
+
+
+

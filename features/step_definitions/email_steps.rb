@@ -69,6 +69,11 @@ end
 #
 
 # Opens the most recently received email
+When /^я открою почтоый ящик "([^"]*)"$/ do |address|
+   open_email(address) 
+end
+
+# Opens the most recently received email
 When /^(?:I|they|"([^"]*?)") opens? the email$/ do |address|
   open_email(address)
 end
@@ -88,6 +93,10 @@ end
 #
 # Inspect the Email Contents
 #
+
+When /^я увижу письмо с темой "([^"]*)"$/ do |text|
+  current_email.should have_subject(text)
+end
 
 Then /^(?:I|they) should see "([^"]*?)" in the email subject$/ do |text|
   current_email.should have_subject(text)

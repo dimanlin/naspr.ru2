@@ -1,4 +1,12 @@
 ru:
+  mail:
+    subjects:
+      new_contact: Новый контакт на naspr.ru
+  labels:
+    type: Тип сообщения
+    sender: Полное имя
+    email: Электронная почта
+    body: Обращение
   submit:
     send: Отправить
   select:
@@ -99,6 +107,7 @@ ru:
               blank: не может быть пустым
             email: 
               blank: не может быть пустым
+              invalid: имеет не допустимый формат
             contact_type:
               blank: не может быть пустым
             body:

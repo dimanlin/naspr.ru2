@@ -1,0 +1,129 @@
+package configuration for libffi is not found
+find_header: checking for ffi.h in /usr/local/include... -------------------- no
+
+"gcc -E -I. -I/usr/local/lib/ruby/1.8/x86_64-linux -I.    -g -O2    conftest.c -o conftest.i"
+conftest.c:1: fatal error: ffi.h: Нет такого файла или каталога
+compilation terminated.
+checked program was:
+/* begin */
+1: #include <ffi.h>
+/* end */
+
+"gcc -E -I. -I/usr/local/lib/ruby/1.8/x86_64-linux -I.    -g -O2   -I/usr/local/include conftest.c -o conftest.i"
+conftest.c:1: fatal error: ffi.h: Нет такого файла или каталога
+compilation terminated.
+checked program was:
+/* begin */
+1: #include <ffi.h>
+/* end */
+
+--------------------
+
+have_func: checking for rb_thread_blocking_region()... -------------------- no
+
+"gcc -o conftest -I. -I/usr/local/lib/ruby/1.8/x86_64-linux -I.    -g -O2   conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic     -lruby-static  -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:3: error: ‘rb_thread_blocking_region’ undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))rb_thread_blocking_region; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/local/lib/ruby/1.8/x86_64-linux -I.    -g -O2   conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic     -lruby-static  -lrt -ldl -lcrypt -lm   -lc"
+/tmp/cchFiPYw.o: In function `t':
+/home/diman/projects/naspr.ru2/cucumber/ruby/1.8/gems/ffi-1.0.7/ext/ffi_c/conftest.c:3: undefined reference to `rb_thread_blocking_region'
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { rb_thread_blocking_region(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for ruby_thread_has_gvl_p()... -------------------- no
+
+"gcc -o conftest -I. -I/usr/local/lib/ruby/1.8/x86_64-linux -I.    -g -O2   conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic     -lruby-static  -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:3: error: ‘ruby_thread_has_gvl_p’ undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))ruby_thread_has_gvl_p; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/local/lib/ruby/1.8/x86_64-linux -I.    -g -O2   conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic     -lruby-static  -lrt -ldl -lcrypt -lm   -lc"
+/tmp/ccyGK1XB.o: In function `t':
+/home/diman/projects/naspr.ru2/cucumber/ruby/1.8/gems/ffi-1.0.7/ext/ffi_c/conftest.c:3: undefined reference to `ruby_thread_has_gvl_p'
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { ruby_thread_has_gvl_p(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for ruby_native_thread_p()... -------------------- no
+
+"gcc -o conftest -I. -I/usr/local/lib/ruby/1.8/x86_64-linux -I.    -g -O2   conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic     -lruby-static  -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:3: error: ‘ruby_native_thread_p’ undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))ruby_native_thread_p; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/local/lib/ruby/1.8/x86_64-linux -I.    -g -O2   conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic     -lruby-static  -lrt -ldl -lcrypt -lm   -lc"
+/tmp/ccRJd6iI.o: In function `t':
+/home/diman/projects/naspr.ru2/cucumber/ruby/1.8/gems/ffi-1.0.7/ext/ffi_c/conftest.c:3: undefined reference to `ruby_native_thread_p'
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { ruby_native_thread_p(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_thread_call_with_gvl()... -------------------- no
+
+"gcc -o conftest -I. -I/usr/local/lib/ruby/1.8/x86_64-linux -I.    -g -O2   conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic     -lruby-static  -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:3: error: ‘rb_thread_call_with_gvl’ undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))rb_thread_call_with_gvl; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/local/lib/ruby/1.8/x86_64-linux -I.    -g -O2   conftest.c  -L. -L/usr/local/lib -Wl,-R/usr/local/lib -L.  -rdynamic -Wl,-export-dynamic     -lruby-static  -lrt -ldl -lcrypt -lm   -lc"
+/tmp/ccsY07oM.o: In function `t':
+/home/diman/projects/naspr.ru2/cucumber/ruby/1.8/gems/ffi-1.0.7/ext/ffi_c/conftest.c:3: undefined reference to `rb_thread_call_with_gvl'
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { rb_thread_call_with_gvl(); return 0; }
+/* end */
+
+--------------------
+

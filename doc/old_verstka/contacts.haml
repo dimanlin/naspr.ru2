@@ -1,0 +1,75 @@
+!!!
+/ saved from url=(0030)http://127.0.0.1:3000/contacts
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "\320\236\320\261\321\211\320\265\321\201\321\202\320\262\320\265\320\275\320\275\320\276\320\265 \320\274\320\275\320\265\320\275\320\270\320\265, \320\270\321\201\321\202\320\270\320\275\320\260, \320\277\321\200\320\260\320\262 \320\273\320\270 \321\217, \321\201\320\277\320\276\321\200\321\213, \320\274\320\275\320\265\320\275\320\270\321\217, \320\264\320\265\320\261\320\260\321\202\321\213, \320\274\320\275\320\265\320\275\320\270\320\265 \320\275\320\260\321\200\320\276\320\264\320\260, \320\272\320\276\320\273\320\273\320\265\320\272\321\202\320\270\320\262\320\275\321\213\320\265 \321\201\320\277\320\276\321\200\321\213", :name => "keywords"}/
+    %meta{:content => "\320\236\320\261\321\211\320\265\321\201\321\202\320\262\320\265\320\275\320\275\320\276\320\265 \320\274\320\275\320\265\320\275\320\270\320\265, \320\270\321\201\321\202\320\270\320\275\320\260, \320\277\321\200\320\260\320\262 \320\273\320\270 \321\217, \321\201\320\277\320\276\321\200\321\213, \320\274\320\275\320\265\320\275\320\270\321\217, \320\264\320\265\320\261\320\260\321\202\321\213, \320\274\320\275\320\265\320\275\320\270\320\265 \320\275\320\260\321\200\320\276\320\264\320\260, \320\272\320\276\320\273\320\273\320\265\320\272\321\202\320\270\320\262\320\275\321\213\320\265 \321\201\320\277\320\276\321\200\321\213", :name => "description"}/
+    %link{:href => "./\320\232\320\276\320\275\321\202\320\260\320\272\321\202\321\213 naspr.ru_files/main.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+    %title Контакты naspr.ru
+  %body
+    / Yandex.Metrika
+    %script{:src => "./\320\232\320\276\320\275\321\202\320\260\320\272\321\202\321\213 naspr.ru_files/watch.js", :type => "text/javascript"}
+    :javascript
+      try { var yaCounter791682 = new Ya.Metrika(791682); } catch(e){}
+    %noscript &lt;div style="position:absolute"&gt;&lt;img src="//mc.yandex.ru/watch/791682"  alt="" /&gt;&lt;/div&gt;
+    / /Yandex.Metrika
+    %script{:src => "./\320\232\320\276\320\275\321\202\320\260\320\272\321\202\321\213 naspr.ru_files/jquery.js", :type => "text/javascript"}
+    %script{:src => "./\320\232\320\276\320\275\321\202\320\260\320\272\321\202\321\213 naspr.ru_files/slide_void.js", :type => "text/javascript"}
+    %header
+    .logo
+      %h1
+        %a{:href => "http://127.0.0.1:3000/"}
+          %img{:alt => "\320\241\320\277\320\276\321\200\321\213", :src => "./\320\232\320\276\320\275\321\202\320\260\320\272\321\202\321\213 naspr.ru_files/naspr.jpg"}/
+    .header
+      %h1 Общественное мнение, прав ли я
+    .search
+      %form{:action => "http://127.0.0.1:3000/debates/search", :method => "get"}
+        %input#text.input_search{:name => "text", :type => "text"}/
+        %input.search_image{:alt => "\320\237\320\276\320\270\321\201\320\272", :src => "./\320\232\320\276\320\275\321\202\320\260\320\272\321\202\321\213 naspr.ru_files/search_button.png", :type => "image"}/
+    .enter
+      %a{:href => "http://127.0.0.1:3000/login"} Войти
+    .registration
+      %a{:href => "http://127.0.0.1:3000/users/new"} Регистрация
+    .content
+      .navigation
+        %a{:href => "http://127.0.0.1:3000/"} Главная
+        \&gt; Контакты
+      %h1.header_h1 Контакты
+      %form#new_contact.new_contact{:action => "./\320\232\320\276\320\275\321\202\320\260\320\272\321\202\321\213 naspr.ru_files/\320\232\320\276\320\275\321\202\320\260\320\272\321\202\321\213 naspr.ru.html", :method => "post"}
+        %div{:style => "margin:0;padding:0;display:inline"}
+          %input{:name => "authenticity_token", :type => "hidden", :value => "zTQe+YLY+3cdrFjijaOgv46crT28sEs4IGnPJJBSKPE="}/
+        %table.contact_form_table
+          %tbody
+            %tr
+              %td Имя:
+              %td
+                %input#contact_from.input{:name => "contact[from]", :size => "30", :type => "text"}/
+              %td.telimage{:rowspan => "2"}
+                %img{:alt => "Tel", :src => "./\320\232\320\276\320\275\321\202\320\260\320\272\321\202\321\213 naspr.ru_files/tel.jpg"}/
+            %tr
+              %td Электронная почта:
+              %td
+                %input#contact_email.input{:name => "contact[email]", :size => "30", :type => "text"}/
+            %tr
+              %td Обращение:
+              %td{:colspan => "2"}
+                %textarea#contact_message.textarea{:cols => "20", :name => "contact[message]", :rows => "10"}
+            %tr
+              %td{:colspan => "3"}
+                %input#contact_submit.right_submit{:name => "commit", :type => "submit", :value => "\320\236\321\202\320\277\321\200\320\260\320\262\320\270\321\202\321\214"}/
+      .phone
+        %address
+          Контактный телефон:
+          %span 8-953-704-00-87
+    %footer
+    .footer_menu
+      %a{:href => "http://127.0.0.1:3000/page/advertising"} Реклама
+      %a{:href => "./\320\232\320\276\320\275\321\202\320\260\320\272\321\202\321\213 naspr.ru_files/\320\232\320\276\320\275\321\202\320\260\320\272\321\202\321\213 naspr.ru.html"} Контакты
+    .layvinternet
+      / LiveInternet counter
+      :javascript
+              %a{:href => "http://www.liveinternet.ru/click", :target => "_blank"}
+        %img{:alt => "", :border => "0", :height => "31", :src => "./\320\232\320\276\320\275\321\202\320\260\320\272\321\202\321\213 naspr.ru_files/hit", :title => "LiveInternet: number of pageviews for 24 hours, of visitors for 24 hours and for today is shown", :width => "88"}/
+      / /LiveInternet
+    .clear

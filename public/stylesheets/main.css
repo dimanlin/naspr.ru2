@@ -7,10 +7,7 @@ html, body {
 }
 
 .notice {
-  width: 100%;
   background-color: yellow;
-  height:30px;
-  margin-left 10px;
 }
 
 a img {
