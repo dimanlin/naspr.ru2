@@ -124,6 +124,7 @@ ru:
               too_short: слишком короткий
             email:
               taken: кем-то занята
+              invalid: имеет не допустимый формат
         post:
           attributes:
             subject:

@@ -19,32 +19,33 @@
       %div{:style => "position:absolute"}
         %img{:alt => "", :src => "//mc.yandex.ru/watch/791682"}/
     / /Yandex.Metrika
-    .login_box.boxshadow
-      .header_login_box
-        %h1 Авторизация
-        После авторизации вам будет доступно создание мнения
-      %table
-        %tr
-          %td.text_align_right
-            Email:
-          %td{:colspan => 2}
-            = text_field_tag "email", "", :class => "auth_input"
-        %tr
-          %td.text_align_right
-            Пароль:
-          %td{:colspan => 2}
-            = password_field_tag "email", "", :class => "auth_input"
-        %tr.tr_height
-          %td
-          %td
-            = check_box_tag "asdasd"
-            Запимнить меня
-          %td.text_align_right
-            = link_to "Забыли пароль?"
-      = image_submit_tag "button_login.png", :class => "login_button"
-
-
-          
+    - unless current_user
+      .registration_box
+        .close_login_box
+        .login_box.boxshadow
+          .header_login_box
+            %h1 Авторизация
+            После авторизации вам будет доступно создание мнения
+          - form_for User.new, :url => user_registration_path  do |f|
+            %table
+              %tr
+                %td.text_align_right
+                  Email:
+                %td{:colspan => 2}
+                  = f.text_field :email, :class => "auth_input"
+              %tr
+                %td.text_align_right
+                  Пароль:
+                %td{:colspan => 2}
+                  = f.password_field :email, :class => "auth_input"
+              %tr.tr_height
+                %td
+                %td
+                  = f.check_box :remember_me
+                  Запимнить меня
+                %td.text_align_right
+                  = link_to "Забыли пароль?"
+            = image_submit_tag "button_login.png", :class => "login_button"
     %header
       .logo
         %h1
@@ -54,7 +55,7 @@
         %h1 Общественное мнение, прав ли я
       - unless current_user
         .enter
-          = link_to t("view.main_menu.sign_in"), new_user_session_path
+          = link_to t("view.main_menu.sign_in"), new_user_session_path, :id => "show_login_form"
         .registration
           = link_to t("view.main_menu.registration"), new_user_registration_path
       - else
@@ -68,7 +69,6 @@
       - if current_user
         = link_to t("view.main_menu.new_post"), new_post_path
         = link_to t("view.main_menu.my_posts"), posts_path(:type => current_user.email)
-   
     .content
       = yield
     %footer
@@ -79,5 +79,11 @@
 
 :javascript
   $(document).ready(function() {
-    $(".login_box").draggable();
+    $(".registration_box").draggable();
+    $("#show_login_form").click(function() {
+      $(".registration_box").show()
+      return false
+    })
+
+    close_login_box()
   })
