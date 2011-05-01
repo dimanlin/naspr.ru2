@@ -6,6 +6,65 @@ html, body {
 	font-size:14px;
 }
 
+.login_button {
+  position: relative;
+  top:20px;
+  left:155px;
+}
+
+.login_box .auth_input {
+  border-color: #0d2c52;
+  border: 1px solid #0d2c52;
+  width:245px;
+  height:34px;
+  background-color: #1e4f8a;
+  color:white;
+  font-size: 22px;
+}
+
+.tr_height {
+  height:40px;
+  font-size: 12px;
+}
+
+.login_box table {
+  color: white;
+  margin-left:45px;
+  margin-top:20px;
+}
+
+.login_box a {
+  color: white;
+}
+
+.header_login_box h1 {
+  margin-bottom: 5px;
+}
+
+.header_login_box {
+  color: white;
+  padding-left:40px;
+  padding-top:30px;
+  padding-right:40px;
+}
+
+.login_box {
+  width: 425px;
+  height: 350px;
+  z-index:100;
+  top: 100px;
+  left: 100px;
+  background-image:url(/images/fon.png);
+  position: absolute;
+}
+
+.boxshadow .login_box {
+  border: none;
+  box-shadow: #666 1px 1px 10px 3px;
+  -moz-box-shadow: #666 1px 1px 10px 3px;
+  -webkit-box-shadow: #666 1px 1px 10px 3px;
+}
+
 .notice {
   background-color: yellow;
 }

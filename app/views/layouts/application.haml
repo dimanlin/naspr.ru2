@@ -9,6 +9,8 @@
   %body
     = javascript_include_tag "application.js"
     = javascript_include_tag "jquery.min.js"
+    = javascript_include_tag "modernizr-1.7.min.js"
+    = javascript_include_tag "jquery-ui-1.8.12.custom.min.js"
     / Yandex.Metrika
     %script{:src => "//mc.yandex.ru/metrika/watch.js", :type => "text/javascript"}
     :javascript
@@ -17,6 +19,32 @@
       %div{:style => "position:absolute"}
         %img{:alt => "", :src => "//mc.yandex.ru/watch/791682"}/
     / /Yandex.Metrika
+    .login_box.boxshadow
+      .header_login_box
+        %h1 Авторизация
+        После авторизации вам будет доступно создание мнения
+      %table
+        %tr
+          %td.text_align_right
+            Email:
+          %td{:colspan => 2}
+            = text_field_tag "email", "", :class => "auth_input"
+        %tr
+          %td.text_align_right
+            Пароль:
+          %td{:colspan => 2}
+            = password_field_tag "email", "", :class => "auth_input"
+        %tr.tr_height
+          %td
+          %td
+            = check_box_tag "asdasd"
+            Запимнить меня
+          %td.text_align_right
+            = link_to "Забыли пароль?"
+      = image_submit_tag "button_login.png", :class => "login_button"
+
+
+          
     %header
       .logo
         %h1
@@ -49,3 +77,7 @@
         = link_to "Контакты", new_contacts_path
       .clear
 
+:javascript
+  $(document).ready(function() {
+    $(".login_box").draggable();
+  })
