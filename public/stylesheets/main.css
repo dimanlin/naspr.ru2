@@ -62,8 +62,8 @@ html, body {
 .registration_box {
   display: none;
   z-index:100;
-  top: 100px;
-  left: 100px;
+  top: 20%;
+  left: 50%;
   position: absolute;
 }
 

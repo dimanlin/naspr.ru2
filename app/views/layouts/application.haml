@@ -11,6 +11,10 @@
     = javascript_include_tag "jquery.min.js"
     = javascript_include_tag "modernizr-1.7.min.js"
     = javascript_include_tag "jquery-ui-1.8.12.custom.min.js"
+    - if Rails.env.to_s == "production"
+      = javascript_include_tag "ext.js"
+    - else
+      = javascript_include_tag "ext-all-debug.js"
     / Yandex.Metrika
     %script{:src => "//mc.yandex.ru/metrika/watch.js", :type => "text/javascript"}
     :javascript
@@ -26,7 +30,7 @@
           .header_login_box
             %h1 Авторизация
             После авторизации вам будет доступно создание мнения
-          - form_for User.new, :url => user_registration_path  do |f|
+          - form_for User.new, :url => new_user_session_path  do |f|
             %table
               %tr
                 %td.text_align_right
@@ -37,14 +41,14 @@
                 %td.text_align_right
                   Пароль:
                 %td{:colspan => 2}
-                  = f.password_field :email, :class => "auth_input"
+                  = f.password_field :password, :class => "auth_input"
               %tr.tr_height
                 %td
                 %td
                   = f.check_box :remember_me
                   Запимнить меня
                 %td.text_align_right
-                  = link_to "Забыли пароль?"
+                  = link_to "Забыли пароль?", new_user_password_path
             = image_submit_tag "button_login.png", :class => "login_button"
     %header
       .logo
@@ -78,6 +82,7 @@
       .clear
 
 :javascript
+
   $(document).ready(function() {
     $(".registration_box").draggable();
     $("#show_login_form").click(function() {
@@ -85,5 +90,20 @@
       return false
     })
 
+
+    $(".login_button").click(function() {
+      Ext.Ajax.request({
+        method: "post",
+        url: 'users/sign_in',
+        form: "new_user",
+        success: function(response){
+          location.href = "/"
+        }
+      });
+      return false
+    });
+
+
     close_login_box()
+
   })

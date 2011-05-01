@@ -40,11 +40,13 @@
             .ansvertruenum
               %span.za
                 = t("view.home.support")
-              %span.numvoited 1072
+              %span.numvoited
+                = @last_post.comments.vote_true.size
             .ansverfalsenum
               %span.protiv
                 = t("view.home.not_support")
-              %span.numvoited 5202
+              %span.numvoited 
+                = @last_post.comments.vote_false.size
           .clear
           .golosovat2
             .dot_link

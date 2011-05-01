@@ -5,6 +5,7 @@ require 'rails/all'
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
+Dir.glob("./lib/*.{rb}").each { |file| require file }
 
 module NasprRu2
   class Application < Rails::Application
@@ -14,6 +15,10 @@ module NasprRu2
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
+#config.autoload_paths += Dir["#{config.root}/lib"]
+#    config.autoload_paths << File.join(config.root, "lib")
+#    config.autoload_paths += %W(#{config.root}/lib)
+#    config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -40,3 +45,4 @@ module NasprRu2
     config.filter_parameters += [:password]
   end
 end
+
