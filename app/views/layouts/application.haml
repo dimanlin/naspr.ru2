@@ -7,48 +7,43 @@
     = stylesheet_link_tag("main.css")
     %title Общественное мнение, истина, прав ли я, споры, мнения, дебаты, мнение народа, коллективные споры
   %body
-    = javascript_include_tag "application.js"
     = javascript_include_tag "jquery.min.js"
     = javascript_include_tag "modernizr-1.7.min.js"
     = javascript_include_tag "jquery-ui-1.8.12.custom.min.js"
-    - if Rails.env.to_s == "production"
-      = javascript_include_tag "ext.js"
-    - else
-      = javascript_include_tag "ext-all-debug.js"
-    / Yandex.Metrika
-    %script{:src => "//mc.yandex.ru/metrika/watch.js", :type => "text/javascript"}
-    :javascript
-      try { var yaCounter791682 = new Ya.Metrika(791682); } catch(e){}
-      %noscript
-      %div{:style => "position:absolute"}
-        %img{:alt => "", :src => "//mc.yandex.ru/watch/791682"}/
-    / /Yandex.Metrika
+    = javascript_include_tag "application.js"
     - unless current_user
       .registration_box
         .close_login_box
         .login_box.boxshadow
           .header_login_box
-            %h1 Авторизация
-            После авторизации вам будет доступно создание мнения
-          - form_for User.new, :url => new_user_session_path  do |f|
+            %h1
+              = t("h1.auth")
+            = t("simple_texts.after_auth")
+          - form_for User.new, :url => new_user_session_path, :html => { :class => "ajax_form" } do |f|
+            = hidden_field_tag "format", "js"
             %table
               %tr
+                %td
+                %td{:colspan => 2}
+                  #login_error
+                    = error_messages_for @resource
+              %tr
                 %td.text_align_right
-                  Email:
+                  = t("labels.simple_email")
                 %td{:colspan => 2}
                   = f.text_field :email, :class => "auth_input"
               %tr
                 %td.text_align_right
-                  Пароль:
+                  = t("labels.password")
                 %td{:colspan => 2}
                   = f.password_field :password, :class => "auth_input"
               %tr.tr_height
                 %td
                 %td
                   = f.check_box :remember_me
-                  Запимнить меня
+                  = t("labels.remember_me")
                 %td.text_align_right
-                  = link_to "Забыли пароль?", new_user_password_path
+                  = link_to t("link.foget_password"), new_user_password_path
             = image_submit_tag "button_login.png", :class => "login_button"
     %header
       .logo
@@ -56,7 +51,7 @@
           %a{:href => "http://naspr.ru/"}
             = image_tag "naspr.jpg", :alt => t("alt.opinion_people")
       .header
-        %h1 Общественное мнение, прав ли я
+        %h1= t("h1.whether_rights_i")
       - unless current_user
         .enter
           = link_to t("view.main_menu.sign_in"), new_user_session_path, :id => "show_login_form"
@@ -73,12 +68,14 @@
       - if current_user
         = link_to t("view.main_menu.new_post"), new_post_path
         = link_to t("view.main_menu.my_posts"), posts_path(:type => current_user.email)
+      = link_to t("link.main_page"), root_path
     .content
       = yield
     %footer
       .footer_menu
-        %a{:href => "http://naspr.ru/page/advertising"} Реклама
-        = link_to "Контакты", new_contacts_path
+        %a{:href => "http://naspr.ru/page/advertising"}
+          =t("link.advertising")
+        = link_to t("link.contacts"), new_contacts_path
       .clear
 
 :javascript
@@ -89,20 +86,6 @@
       $(".registration_box").show()
       return false
     })
-
-
-    $(".login_button").click(function() {
-      Ext.Ajax.request({
-        method: "post",
-        url: 'users/sign_in',
-        form: "new_user",
-        success: function(response){
-          location.href = "/"
-        }
-      });
-      return false
-    });
-
 
     close_login_box()
 

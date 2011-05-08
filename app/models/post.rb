@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
 
   def valid_rule
     if self.rule != "1"
-      self.errors.add(:rule, "Вы должны быть согласны с правилами публикации")
+      self.errors.add(:rule, I18n.t("errors.rules"))
     end
   end
 

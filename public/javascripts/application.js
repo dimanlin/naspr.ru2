@@ -10,3 +10,16 @@ function open_comment() {
   })
   return false
 }
+
+$(document).ready(function() {
+  $(".ajax_form").live("submit", function() {
+    $.ajax({
+      url: $(".ajax_form").attr("action"),
+      data: $(".ajax_form").serialize(),
+      type: "POST",
+      error: function(data){$("#login_error").html("Неправильный email или пароль.")}
+    });
+    return false
+  })
+})
+

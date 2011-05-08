@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
+  def resource 
+    nil
+  end
+
   def access_denied
     if current_user
       render :template => 'home/access_denied'

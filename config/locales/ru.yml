@@ -1,8 +1,15 @@
 ru:
+  errors:
+    rules: Вы должны быть согласны с правилами публикации
+  simple_texts:
+    after_auth: После авторизации вам будет доступно создание мнения
   mail:
     subjects:
       new_contact: Новый контакт на naspr.ru
   labels:
+    simple_email: "Email:"
+    password: "Пароль:"
+    remember_me: Запимнить меня
     type: Тип сообщения
     sender: Полное имя
     email: Электронная почта
@@ -22,11 +29,17 @@ ru:
     opinion_people: Мнения народа
     avatar: Аватар
   link:
+    foget_password: Забыли пароль?
+    main_page: Главная
     voit: Высказаться
     new_post: Создать своё мнение 
     posts: Все мнения
+    advertising: Реклама
+    contacts: Контакты
   h1:
+    auth: Авторизация
     last_post: Последние мнения
+    whether_rights_i: Общественное мнение, прав ли я
   notice:
     contact_save: Сообщение отправленно
     post_create: Ваше мнение добавленно
