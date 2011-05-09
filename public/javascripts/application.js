@@ -30,16 +30,5 @@ $(document).ready(function() {
     })
     return false
   })
-/*
-  $(".recover_password").live("submit", function() {
-     $.ajax({
-      url: $(".recover_password").attr("action"),
-      data: $(".recover_password").serialize(),
-      type: "POST",
-      success: function(data){$(".login_box").html(data)}
-    });
-    return false 
-  })
-*/
 })
 
