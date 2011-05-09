@@ -21,5 +21,24 @@ $(document).ready(function() {
     });
     return false
   })
+
+  $("#link_foget_password").live("click", function() {
+    $.ajax({
+      url: $(this).attr("href"),
+      type: "GET",
+      success: function(data){$(".login_box").html(data)}  
+    })
+    return false
+  })
+
+  $(".recover_password").live("submit", function() {
+     $.ajax({
+      url: $(".recover_password").attr("action"),
+      data: $(".recover_password").serialize(),
+      type: "POST",
+      success: function(data){$(".login_box").html(data)}
+    });
+    return false 
+  })
 })
 

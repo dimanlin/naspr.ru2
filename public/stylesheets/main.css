@@ -6,6 +6,22 @@ html, body {
 	font-size:14px;
 }
 
+#device_links {
+  margin-top:40px;
+  margin-left:50px;
+  margin-right:50px;
+}
+
+#div_sign_in {
+  width: 150px;
+  float: right;
+  text-align: right;
+}
+
+#div_sign_up {
+  width: 150px;
+}
+
 .login_button {
   position: relative;
   top:20px;

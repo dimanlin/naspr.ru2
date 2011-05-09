@@ -1,0 +1,18 @@
+.header_login_box
+  %h1= t("h1.forgot_your_password") 
+  = t("simple_texts.forget_password")
+= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => "recover_password" }) do |f|
+  = hidden_field_tag "format", "js"
+  %table
+    %tr
+      %td{:colspan => 3}
+        #login_error
+          = devise_error_messages!(false)
+    %tr
+      %td.text_align_right
+        Email:
+      %td{:colspan => 2}
+        = f.text_field :email, :class => "auth_input"
+  = image_submit_tag "send.png", :class => "login_button"
+  #device_links
+    = render :partial => "shared/links"

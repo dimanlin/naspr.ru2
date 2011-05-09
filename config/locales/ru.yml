@@ -3,6 +3,7 @@ ru:
     rules: Вы должны быть согласны с правилами публикации
   simple_texts:
     after_auth: После авторизации вам будет доступно создание мнения
+    forget_password: Укажите всой email и мы вам вышлим инструкции для востановления пароля
   mail:
     subjects:
       new_contact: Новый контакт на naspr.ru
@@ -40,6 +41,7 @@ ru:
     auth: Авторизация
     last_post: Последние мнения
     whether_rights_i: Общественное мнение, прав ли я
+    forgot_your_password: Забыли пароль?
   notice:
     contact_save: Сообщение отправленно
     post_create: Ваше мнение добавленно
@@ -138,6 +140,7 @@ ru:
             email:
               taken: кем-то занята
               invalid: имеет не допустимый формат
+              blank: не может быть пустой
         post:
           attributes:
             subject:
