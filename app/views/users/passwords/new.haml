@@ -1,8 +1,7 @@
 .header_login_box
   %h1= t("h1.forgot_your_password") 
   = t("simple_texts.forget_password")
-= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => "recover_password" }) do |f|
-  = hidden_field_tag "format", "js"
+= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => "recover_password" }, :remote => true) do |f|
   %table
     %tr
       %td{:colspan => 3}

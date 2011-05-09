@@ -1,0 +1,8 @@
+var errors = <%= error_message_on(resource,:email).blank? ? "'no_error'" : "'errors'" %>
+if(errors == "no_error") {
+  $("#user_new").remove()
+  $(".header_login_box").text("На ваш электронный ящик отправленно письмо, и инструкциями по востановлению пароля.") 
+} else {
+  $("#login_error").text("email: не найден")
+}
+

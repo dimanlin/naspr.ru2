@@ -6,11 +6,13 @@
     %meta{:content => "Общественное мнение, истина, прав ли я, споры, мнения, дебаты, мнение народа, коллективные споры", :name => "description"}/
     = stylesheet_link_tag("main.css")
     %title Общественное мнение, истина, прав ли я, споры, мнения, дебаты, мнение народа, коллективные споры
-  %body
     = javascript_include_tag "jquery.min.js"
     = javascript_include_tag "modernizr-1.7.min.js"
     = javascript_include_tag "jquery-ui-1.8.12.custom.min.js"
+    = javascript_include_tag "rails.js"
     = javascript_include_tag "application.js"
+    = csrf_meta_tag
+  %body
     - unless current_user
       .registration_box
         .close_login_box

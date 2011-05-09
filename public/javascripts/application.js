@@ -30,7 +30,7 @@ $(document).ready(function() {
     })
     return false
   })
-
+/*
   $(".recover_password").live("submit", function() {
      $.ajax({
       url: $(".recover_password").attr("action"),
@@ -40,5 +40,6 @@ $(document).ready(function() {
     });
     return false 
   })
+*/
 })
 
