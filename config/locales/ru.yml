@@ -15,6 +15,16 @@ ru:
     sender: Полное имя
     email: Электронная почта
     body: Обращение
+  link:
+    foget_password: Забыли пароль?
+    main_page: Главная
+    voit: Высказаться
+    new_post: Создать своё мнение 
+    posts: Все мнения
+    advertising: Реклама
+    contacts: Контакты
+    sign_in: Авторизоваться
+    sign_up: Зарегистрироваться
   submit:
     send: Отправить
   select:
@@ -29,14 +39,6 @@ ru:
   alt:
     opinion_people: Мнения народа
     avatar: Аватар
-  link:
-    foget_password: Забыли пароль?
-    main_page: Главная
-    voit: Высказаться
-    new_post: Создать своё мнение 
-    posts: Все мнения
-    advertising: Реклама
-    contacts: Контакты
   h1:
     auth: Авторизация
     last_post: Последние мнения

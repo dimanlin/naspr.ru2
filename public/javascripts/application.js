@@ -1,3 +1,13 @@
+$(".ajax_sign_in").live("click", function() {
+  $.ajax({
+    url: $(this).attr("href"),
+    type: "GET",
+    success: function(data) {
+      $(".login_box").html(data)
+    }
+  });
+  return false
+})
 
 
 function close_login_box() {
