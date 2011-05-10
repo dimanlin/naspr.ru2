@@ -12,6 +12,6 @@
         Email:
       %td{:colspan => 2}
         = f.text_field :email, :class => "auth_input"
-  = image_submit_tag "send.png", :class => "login_button"
+  = image_submit_tag "send.png", :class => "login_button", :id => "recover_password"
   #device_links
     = render :partial => "shared/links"

@@ -1,3 +1,4 @@
+# encoding: utf-8
 Допустим /^у пользователь "([^\"]*)" имеет роль "([^\"]*)"$/ do |user_email, role|
   user = User.find_by_email(user_email)
   assert user.has_role?(role)

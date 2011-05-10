@@ -1,3 +1,4 @@
+# encoding: utf-8
 module NavigationHelpers
   # Maps a name to a path. Used by the
   #
@@ -10,8 +11,8 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
-    when /создания мнения/
-      new_post_path
+#    when /создания мнения/
+#      new_post_path
     when /авторизации/
       '/users/sign_in'
 
