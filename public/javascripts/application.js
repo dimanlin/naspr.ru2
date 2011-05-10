@@ -25,9 +25,9 @@ function open_comment() {
 
 $(document).ready(function() {
   $(".registration_box").draggable();
-  $("#show_login_form").click(function() {
+  $(".show_login_form").click(function() {
     $.ajax({
-      url: $("#show_login_form").attr("href"),
+      url: $(".show_login_form").attr("href"),
       type: "GET",
       success: function(data) {
         $(".login_box").html(data)
@@ -52,11 +52,14 @@ $(document).ready(function() {
     return false
   })
 
-  $("#link_foget_password").live("click", function() {
+  $(".link_foget_password").live("click", function() {
     $.ajax({
       url: $(this).attr("href"),
       type: "GET",
-      success: function(data){$(".login_box").html(data)}  
+      success: function(data){
+        $(".login_box").html(data)
+        $(".registration_box").show()       
+      }  
     })
     return false
   })

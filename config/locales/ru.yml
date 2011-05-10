@@ -27,6 +27,7 @@ ru:
     sign_up: Зарегистрироваться
   submit:
     send: Отправить
+    sign_up: Зарегистрироваться
   select:
     questions: Общие вопросы
     error: Ошибка
@@ -44,6 +45,8 @@ ru:
     last_post: Последние мнения
     whether_rights_i: Общественное мнение, прав ли я
     forgot_your_password: Забыли пароль?
+  h2:
+    registration: Регистрация
   notice:
     contact_save: Сообщение отправленно
     post_create: Ваше мнение добавленно

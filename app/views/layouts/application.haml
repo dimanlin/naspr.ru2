@@ -26,7 +26,7 @@
         %h1= t("h1.whether_rights_i")
       - unless current_user
         .enter
-          = link_to t("view.main_menu.sign_in"), new_user_session_path, :id => "show_login_form"
+          = link_to t("view.main_menu.sign_in"), new_user_session_path, :class => "show_login_form"
         .registration
           = link_to t("view.main_menu.registration"), new_user_registration_path
       - else
