@@ -17,36 +17,6 @@
       .registration_box
         .close_login_box
         .login_box.boxshadow
-          .header_login_box
-            %h1
-              = t("h1.auth")
-            = t("simple_texts.after_auth")
-          - form_for User.new, :url => new_user_session_path, :html => { :class => "ajax_form" } do |f|
-            = hidden_field_tag "format", "js"
-            %table
-              %tr
-                %td
-                %td{:colspan => 2}
-                  #login_error
-                    = error_messages_for @resource
-              %tr
-                %td.text_align_right
-                  = t("labels.simple_email")
-                %td{:colspan => 2}
-                  = f.text_field :email, :class => "auth_input"
-              %tr
-                %td.text_align_right
-                  = t("labels.password")
-                %td{:colspan => 2}
-                  = f.password_field :password, :class => "auth_input"
-              %tr.tr_height
-                %td
-                %td
-                  = f.check_box :remember_me
-                  = t("labels.remember_me")
-                %td.text_align_right
-                  = link_to t("link.foget_password"), new_user_password_path(), :id => "link_foget_password"
-            = image_submit_tag "button_login.png", :class => "login_button"
     %header
       .logo
         %h1
@@ -80,15 +50,3 @@
         = link_to t("link.contacts"), new_contacts_path
       .clear
 
-:javascript
-
-  $(document).ready(function() {
-    $(".registration_box").draggable();
-    $("#show_login_form").click(function() {
-      $(".registration_box").show()
-      return false
-    })
-
-    close_login_box()
-
-  })

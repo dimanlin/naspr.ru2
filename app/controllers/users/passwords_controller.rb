@@ -4,12 +4,6 @@ class Users::PasswordsController < Devise::PasswordsController
 
   respond_to :html, :js, :xml
 
-#  def new
-#    puts "111111111111111111111111111111"
-#    build_resource({})
-#    render_with_scope :new
-#  end
-
    def create
     self.resource = resource_class.send_reset_password_instructions(params[resource_name])
 
