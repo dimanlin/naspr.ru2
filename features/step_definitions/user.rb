@@ -13,8 +13,6 @@ end
   И %(я увижу "Добро пожаловать на сервис мнений и споров.")
 end
 
-
-
 Допустим /^зарегистрирован пользователь "([^\"]*)"$/ do |user_email|
   default_password = "secret"
   user = User.create(:email => user_email, 
@@ -23,4 +21,3 @@ end
 
   puts user.errors.inspect unless user.errors.blank?
 end
-
