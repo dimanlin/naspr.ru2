@@ -71,7 +71,7 @@ end
 
 # Opens the most recently received email
 When /^я открою почтоый ящик "([^"]*)"$/ do |address|
-   open_email(address) 
+  open_email(address) 
 end
 
 # Opens the most recently received email
