@@ -18,7 +18,10 @@
                   )
             %tr
               %td.hightred
-                = link_to t("link.new_post"), new_post_path
+                - if current_user
+                  = link_to t("link.new_post"), new_post_path
+                - else
+                  = link_to t("link.new_post"), new_user_session_path, :class => "show_login_form"
               %td.hightblue
                 = link_to t("link.posts"), posts_path
 
