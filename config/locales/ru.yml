@@ -10,6 +10,8 @@ ru:
   labels:
     simple_email: "Email:"
     password: "Пароль:"
+    new_password: "Новый пароль:"
+    confirm_password: "Подтвердите пароль:"
     remember_me: Запимнить меня
     type: Тип сообщения
     sender: Полное имя
@@ -28,6 +30,7 @@ ru:
   submit:
     send: Отправить
     sign_up: Зарегистрироваться
+    change_my_password: Изменить пароль
   select:
     questions: Общие вопросы
     error: Ошибка
@@ -47,6 +50,7 @@ ru:
     forgot_your_password: Забыли пароль?
   h2:
     registration: Регистрация
+    change_you_password: Изменение пароля
   notice:
     contact_save: Сообщение отправленно
     post_create: Ваше мнение добавленно

@@ -1,6 +1,6 @@
 class Users::PasswordsController < Devise::PasswordsController
 
-  layout false
+  layout "application", :only => [:edit, :update]
 
   respond_to :html, :js, :xml
 
