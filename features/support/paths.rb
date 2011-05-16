@@ -15,6 +15,7 @@ module NavigationHelpers
 #      new_post_path
     when /авторизации/
       '/users/sign_in'
+    when /странице которой нет/
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
