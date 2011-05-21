@@ -113,49 +113,6 @@ When /^(?:|я )выберу "([^\"]*)" из "([^\"]*)"$/ do |value, field|
   select(value, :from => field)
 end
 
-# Use this step in conjunction with Rail's datetime_select helper. For example:
-# When я select "December 25, 2008 10:00" as the date and time
-When /^(?:|я )select "([^\"]*)" as the date and time$/ do |time|
-  select_datetime(time)
-end
-
-# Use this step when using multiple datetime_select helpers on a page or
-# you want to specify which datetime to select. Given the following view:
-#   <%= f.label :preferred %><br />
-#   <%= f.datetime_select :preferred %>
-#   <%= f.label :alternative %><br />
-#   <%= f.datetime_select :alternative %>
-# The following steps would fill out the form:
-# When я select "November 23, 2004 11:20" as the "Preferred" date and time
-# And я select "November 25, 2004 10:30" as the "Alternative" date and time
-When /^(?:|я )select "([^\"]*)" as the "([^\"]*)" date and time$/ do |datetime, datetime_label|
-  select_datetime(datetime, :from => datetime_label)
-end
-
-# Use this step in conjunction with Rail's time_select helper. For example:
-# When я select "2:20PM" as the time
-# Note: Rail's default time helper provides 24-hour time-- not 12 hour time. Webrat
-# will convert the 2:20PM to 14:20 and then select it.
-When /^(?:|я )select "([^\"]*)" as the time$/ do |time|
-  select_time(time)
-end
-
-# Use this step when using multiple time_select helpers on a page or you want to
-# specify the name of the time on the form.  For example:
-# When я select "7:30AM" as the "Gym" time
-When /^(?:|я )select "([^\"]*)" as the "([^\"]*)" time$/ do |time, time_label|
-  select_time(time, :from => time_label)
-end
-
-# Use this step in conjunction with Rail's date_select helper.  For example:
-# When я select "February 20, 1981" as the date
-When /^(?:|я )select "([^\"]*)" as the date$/ do |date|
-  select_date(date)
-end
-
-# Use this step when using multiple date_select helpers on one page or
-# you want to specify the name of the date on the form. For example:
-# When я select "April 26, 1982" as the "Date of Birth" date
 
 When /^(?:|я )выберу "(.*)" как дату "(.*)"$/ do |date, date_label|
   day,month,year = date.split(' ')
@@ -329,51 +286,9 @@ Then /^(?:|я )должен быть на (.+)$/ do |page_name|
   end
 end
 
-Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
-  actual_params   = CGI.parse(URI.parse(current_url).query)
-  expected_params = Hash[expected_pairs.rows_hash.map{|k,v| [k,[v]]}]
-
-  if defined?(Spec::Rails::Matchers)
-    actual_params.should == expected_params
-  else
-    assert_equal expected_params, actual_params
-  end
-end
 
 Then /^я буду на (.+)$/ do |page_name|
   URI.parse(current_url).path.should == path_to(page_name)
-end
-
-Then /^я увижу форму ввода$/ do
-  assert have_tag('form').matches?(response_body), 'Искали форму ввода, но не нашли'
-end
-
-Then /^я не увижу форму ввода$/ do
-  assert !have_tag('form').matches?(response_body), 'Форма не должна быть, а есть сука'
-end
-
-Then /^будет (?:нотис|уведомление|сообщение|notice) "(.*)"$/ do |text|
-  if respond_to? :selenium
-    response.should contain(text)
-  else
-    assert_equal text, flash[:notice], "flash[:notice] не содержит #{text}"
-  end
-end
-
-Then /^будет получен rss\-feed$/ do
-  assert_equal "application/rss+xml", response.content_type
-end
-
-Then /^(?:|я )увижу табличные данные в "([^\"]*)":$/ do |element, _table|
-  _table.diff!(tableish("table#{element} tr", 'td,th'))
-end
-
-Then /^мне (запр\w+|разр\w+) доступ$/ do |permission|
-  if permission =~ /разр/
-	  assert @response.success? || @response.redirect?, "действие запрещено"
-  else
-    assert flash[:error].eql?(I18n.t(:permission_denied)) || flash[:notice].eql?(I18n.t(:require_user)), "Доступ возможен"
-  end
 end
 
 
@@ -385,3 +300,6 @@ end
   puts model_name.constantize.all.inspect
 end
 
+Then /^подождать "([^"]*)" секунды$/ do |num|
+  sleep(num.to_i)
+end

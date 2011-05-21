@@ -8,12 +8,6 @@ class Post < ActiveRecord::Base
   acts_as_commentable
 
   validates_presence_of :subject, :body, :user_id
-  validate :valid_rule
-
-  def valid_rule
-    if self.rule != "1"
-      self.errors.add(:rule, I18n.t("errors.rules"))
-    end
-  end
+  validates_inclusion_of :rule, :in => ["1"]
 
 end
