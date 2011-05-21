@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110521223526) do
+ActiveRecord::Schema.define(:version => 20110521224627) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20110521223526) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "vote"
+    t.boolean  "on_moderation",                  :default => false
   end
 
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20110521223526) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "on_moderation", :default => false
   end
 
   create_table "roles", :force => true do |t|
