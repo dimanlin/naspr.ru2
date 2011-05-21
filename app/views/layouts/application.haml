@@ -45,8 +45,7 @@
       = yield
     %footer
       .footer_menu
-        %a{:href => "http://naspr.ru/page/advertising"}
-          =t("link.advertising")
+        = link_to t("link.advertising"), page_url(:permalink => "advertisement")
         = link_to t("link.contacts"), new_contacts_path
       .clear
 

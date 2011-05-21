@@ -5,6 +5,7 @@ NasprRu2::Application.routes.draw do
   resources :posts
   resources :comments
   resource :contacts
+  resource :page
 
   root :to => "home#index"
 
