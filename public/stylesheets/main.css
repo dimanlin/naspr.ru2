@@ -39,7 +39,7 @@ html, body {
   cursor:pointer;
 }
 
-.login_box .auth_input {
+.auth_input {
   border-color: #0d2c52;
   border: 1px solid #0d2c52;
   width:245px;
@@ -87,7 +87,7 @@ html, body {
   background-image:url(/images/fon.png);
   width: 425px;
   height: 350px;
-
+  cursor: move;
 }
 
 .boxshadow .login_box {
