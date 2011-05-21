@@ -19,6 +19,7 @@
       = t("view.posts.rule")
     %br
     = f.check_box :rule
-
+  %p
+    = @content_rules.body
   %p
     = f.submit t("button.create")

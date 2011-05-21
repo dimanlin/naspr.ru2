@@ -10,6 +10,8 @@ class PostsController < ApplicationController
     end
   end
 
+  before_filter :content_rules, :only => [:new, :create]
+
   def index
     @posts = if params[:type]
       User.find_by_email(params[:type]).posts.paginate(:page => params[:page], :per_page => 10, :order => "created_at DESC")
@@ -42,6 +44,12 @@ class PostsController < ApplicationController
 
   def new 
     @post = Post.new
+  end
+
+  private
+
+  def content_rules
+    @content_rules = Content.find_by_name("rules")
   end
 
 
