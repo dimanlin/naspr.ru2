@@ -81,13 +81,14 @@ html, body {
   top: 20%;
   left: 50%;
   position: absolute;
+  cursor: move;
+  margin-left: -213px;
 }
 
 .login_box {
   background-image:url(/images/fon.png);
   width: 425px;
   height: 350px;
-  cursor: move;
 }
 
 .boxshadow .login_box {
