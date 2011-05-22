@@ -6,7 +6,7 @@ module ApplicationHelper
       "active"
     elsif params[:controller] == "posts" && !params[:type].blank? && name == t("link.my_posts")
       "active"
-    elsif params[:controller] == "posts" && params[:action] == "new" && name == t("link.create_post")
+    elsif params[:controller] == "posts" && (params[:action] == "new" || params[:action] == "create") && name == t("link.create_post")
       "active"
     else
       "no_active"
