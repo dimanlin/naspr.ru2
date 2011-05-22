@@ -6,6 +6,35 @@ html, body {
 	font-size:14px;
 }
 
+
+/* flash-messages */
+.flash .message {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  text-align:center;
+  margin: 0 auto 15px;
+}
+
+.flash .message p {
+  margin:8px;
+}
+          
+.flash .error {
+  border: 1px solid #fbb;
+  background-color: #fdd;
+}
+
+.flash .warning {
+  border: 1px solid #fffaaa;
+  background-color: #ffffcc;
+}
+
+.flash .notice {
+  border: 1px solid #1FDF00;
+  background-color: #BBFFB6;
+}
+/* flash-messages-end-block */
+
 .bottom_part {
   margin-top:6px;
 }
@@ -221,10 +250,6 @@ html, body {
   box-shadow: #666 1px 1px 10px 3px;
   -moz-box-shadow: #666 1px 1px 10px 3px;
   -webkit-box-shadow: #666 1px 1px 10px 3px;
-}
-
-.notice {
-  background-color: yellow;
 }
 
 a img {
@@ -925,11 +950,6 @@ footer {
 
 .message2 {
   width:600px;
-  margin-top:10px;
-}
-
-.message {
-  width:100%;
   margin-top:10px;
 }
 

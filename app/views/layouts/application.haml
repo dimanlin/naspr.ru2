@@ -32,11 +32,8 @@
       - else
         .registration
           = link_to t("view.main_menu.logout"), destroy_user_session_path
-    .notice
-      = notice
-    .alert
-      = alert
     = render :partial => "shared/main_menu"
+    = render :partial => "shared/flashes"
     .content
       = yield
     %footer

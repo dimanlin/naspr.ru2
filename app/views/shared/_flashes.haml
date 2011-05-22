@@ -1,0 +1,9 @@
+.flash
+  - if notice || flash[:notice]
+    .message.notice
+      %p
+        = notice
+  - if alert || flash[:error]
+    .message.error
+      %p
+        = alert
