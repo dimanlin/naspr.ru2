@@ -1,4 +1,9 @@
 ru:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
   simple_texts:
     after_auth: После авторизации вам будет доступно создание мнения
     forget_password: Укажите всой email и мы вам вышлим инструкции для востановления пароля

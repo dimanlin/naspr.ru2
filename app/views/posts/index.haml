@@ -20,5 +20,5 @@
         %td
           = post.comments.vote_false.size
         %td
-          = post.created_at
+          = l(post.created_at, :format => :default)
 = will_paginate @posts
