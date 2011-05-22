@@ -1,27 +1,24 @@
 %h2
   All posts
 
-
-= will_paginate @posts
-%table{:border => 1}
+%table{:class => "table"}
   %tr
-    %td
+    %th{:class => "first"}
       Subject
-    %td
-      Created at
-    %td
+    %th
       За
-    %td
+    %th
       Против
+    %th{:class => "last"}
+      Создано
     - @posts.each do |post|
       %tr
         %td
           = link_to post.subject, post_url(post)
         %td
-          = post.created_at
-        %td
           = post.comments.vote_true.size
         %td
           = post.comments.vote_false.size
-
+        %td
+          = post.created_at
 = will_paginate @posts
