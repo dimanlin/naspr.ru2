@@ -1,0 +1,55 @@
+%nav
+  .nav
+    #line
+    - link_to root_path, :class => class_for_element_menu(t("link.main_page")) do 
+      .element_menu
+        .top_part
+          .left_part
+          .middle_part
+            = t("link.main_page")
+          .right_part
+          .clear
+        .bottom_part
+          .bottom_left_part
+          .bottom_middle_part
+          .bottom_right_part
+
+    - link_to root_path, :class => class_for_element_menu(t("link.profile")) do 
+      .element_menu
+        .top_part
+          .left_part
+          .middle_part
+            = t("link.profile")
+          .right_part
+          .clear
+        .bottom_part
+          .bottom_left_part
+          .bottom_middle_part
+          .bottom_right_part
+    - if current_user
+      - link_to posts_path(:type => current_user.email), :class => class_for_element_menu(t("link.my_posts")) do 
+        .element_menu
+          .top_part
+            .left_part
+            .middle_part
+              = t("link.my_posts")
+            .right_part
+            .clear
+          .bottom_part
+            .bottom_left_part
+            .bottom_middle_part
+            .bottom_right_part
+
+      - link_to new_post_path, :class => class_for_element_menu(t("link.create_post")) do 
+        .element_menu
+          .top_part
+            .left_part
+            .middle_part
+              = t("link.create_post")
+            .right_part
+            .clear
+          .bottom_part
+            .bottom_left_part
+            .bottom_middle_part
+            .bottom_right_part
+

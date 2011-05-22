@@ -36,55 +36,7 @@
       = notice
     .alert
       = alert
-    %nav
-      .nav
-        #line
-        - link_to root_path, :class => "active" do 
-          .element_menu
-            .top_part
-              .left_part
-              .middle_part
-                Главная
-              .right_part
-              .clear
-            .bottom_part
-              .bottom_left_part
-              .bottom_middle_part
-              .bottom_right_part
-
-        - link_to root_path, :class => "no_active" do 
-          .element_menu
-            .top_part
-              .left_part
-              .middle_part
-                Профаил
-              .right_part
-              .clear
-            .bottom_part
-              .bottom_left_part
-              .bottom_middle_part
-              .bottom_right_part
-
-        - link_to root_path, :class => "no_active" do 
-          .element_menu
-            .top_part
-              .left_part
-              .middle_part
-                Мои мнения
-              .right_part
-              .clear
-            .bottom_part
-              .bottom_left_part
-              .bottom_middle_part
-              .bottom_right_part
-
-
-
-
-
-        - if current_user
-          = link_to t("view.main_menu.new_post"), new_post_path
-          = link_to t("view.main_menu.my_posts"), posts_path(:type => current_user.email)
+    = render :partial => "shared/main_menu"
     .content
       = yield
     %footer

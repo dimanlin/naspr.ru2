@@ -16,6 +16,10 @@ ru:
     email: Электронная почта
     body: Обращение
   link:
+    main_page: Главная
+    profile: Профаил
+    my_posts: Мои мнения
+    create_post: Создать мнение
     foget_password: Забыли пароль?
     main_page: Главная
     voit: Высказаться
