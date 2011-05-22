@@ -6,6 +6,131 @@ html, body {
 	font-size:14px;
 }
 
+.bottom_part {
+  margin-top:6px;
+}
+
+.element_menu {
+  display:inline-block;
+}
+
+.top_part {
+  display:inline-block;
+}
+
+.active {
+  color:white;
+}
+
+.no_active {
+  color:white;
+}
+
+
+.no_active .bottom_left_part {
+  background-image:url("/images/left_part_not_active_shadow.png");
+  height:14px;
+  width:31px;
+  float: left;
+}
+
+.no_active .bottom_middle_part {
+  background-image:url("/images/middle_no_active_button.png");
+  height:14px;
+  display: inline-block;
+  float: left;
+}
+
+.no_active .bottom_right_part {
+  background-image:url("/images/right_part_not_active_shadow.png");
+  height:14px;
+  width:31px;
+  float: left;
+}
+
+.no_active .left_part {
+  background-image:url("/images/left_part_not_active_button.png");
+  height:25px;
+  width:5px;
+  float: left;
+}
+
+.no_active .middle_part {
+  background-image:url("/images/background_not_active_button.jpg");
+  height:25px;
+  display: inline-block;
+  float: left;
+  font-size:18px;
+  font-weight:bolder;
+  padding-top:1px;
+}
+
+.no_active .right_part {
+  background-image:url("/images/right_part_not_active_button.png");
+  height:25px;
+  width:5px;
+  float: left;
+}
+
+.active .bottom_left_part {
+  background-image:url("/images/left_part_active_shadow.png");
+  height:14px;
+  width:25px;
+  float: left;
+}
+
+.active .bottom_middle_part {
+  background-image:url("/images/middle_activ_button.png");
+  height:14px;
+  display: inline-block;
+  float: left;
+}
+
+.active .bottom_right_part {
+  background-image:url("/images/right_part_active_shadow.png");
+  height:14px;
+  width:25px;
+  float: left;
+}
+
+.active .left_part {
+  background-image:url("/images/left_part_active_button.png");
+  height:25px;
+  width:5px;
+  float: left;
+}
+
+.active .middle_part {
+  background-image:url("/images/background_active_button.jpg");
+  height:25px;
+  display: inline-block;
+  float: left;
+  font-size:18px;
+  font-weight:bolder;
+  padding-top:1px;
+}
+
+.active .right_part {
+  background-image:url("/images/right_part_active_button.png");
+  height:25px;
+  width:5px;
+  float: left;
+}
+
+.nav {
+  width:100%;
+  position:relative;
+  text-align:center;
+}
+
+.nav #line {
+  background-image:url(/images/line.jpg);
+  width:100%;
+  height:10px;
+  top:25px;
+  position:absolute;
+}
+
 #device_links {
   margin-top:40px;
   margin-left:50px;

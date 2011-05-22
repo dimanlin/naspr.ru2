@@ -1,3 +1,16 @@
+function fix_navigation() {
+  $(".active").each(function() {
+    var width = $(this).find(".element_menu > .top_part > .middle_part:first").width() - 39
+    $(this).find(".element_menu > .bottom_part > .bottom_middle_part").css("width", width)
+  })
+
+  $(".no_active").each(function() {
+    var width = $(this).find(".element_menu > .top_part > .middle_part:first").width() - 53
+    $(this).find(".element_menu > .bottom_part > .bottom_middle_part").css("width", width)
+  })
+
+}
+
 $(".ajax_sign_in").live("click", function() {
   $.ajax({
     url: $(this).attr("href"),
