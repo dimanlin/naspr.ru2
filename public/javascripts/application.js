@@ -1,6 +1,6 @@
 function fix_navigation() {
   $(".active").each(function() {
-    var width = $(this).find(".element_menu > .top_part > .middle_part:first").width() - 39
+    var width = $(this).find(".element_menu > .top_part > .middle_part:first").width() - 40
     $(this).find(".element_menu > .bottom_part > .bottom_middle_part").css("width", width)
   })
 
