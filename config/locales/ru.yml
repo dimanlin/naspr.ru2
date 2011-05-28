@@ -126,6 +126,7 @@ ru:
     attributes:
       comment:
         vote: ""
+        comment: Ответ
       user:
         email: "Электронная почта:"
         password: "Пароль:"
@@ -156,6 +157,8 @@ ru:
           attributes:
             vote:
               blank: Вы должны проголосовать
+            comment:
+              blank: не может быть пустым
         user:
           attributes:
             password:

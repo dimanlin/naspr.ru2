@@ -55,7 +55,7 @@
             .dot_link
               = link_to t("link.voit"), "#", :id => "voit_link"
           - if @comment
-            .voited_form
+            .voited_form{:style => "display:none;"}
               = form_for @comment do |f|
                 = f.hidden_field :commentable_id
                 %table
