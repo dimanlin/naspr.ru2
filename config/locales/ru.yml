@@ -4,6 +4,14 @@ ru:
       default: "%d.%m.%Y"
       short: "%d %b"
       long: "%d %B %Y"
+  tables:
+    user_post:
+      subject: Тема
+      for_true: За
+      for_false: Против
+      created_at: Создан
+  contents:
+    no_posts: Пока нет постов
   simple_texts:
     after_auth: После авторизации вам будет доступно создание мнения
     forget_password: Укажите всой email и мы вам вышлим инструкции для востановления пароля
@@ -58,6 +66,7 @@ ru:
   h2:
     registration: Регистрация
     change_you_password: Изменение пароля
+    all_post: Все посты
   notice:
     contact_save: Сообщение отправленно
     post_create: Ваше мнение добавленно

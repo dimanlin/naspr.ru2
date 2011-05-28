@@ -1,24 +1,27 @@
 %h2
-  All posts
+  = t("h2.all_post")
 
-%table{:class => "table"}
-  %tr
-    %th{:class => "first"}
-      Subject
-    %th
-      За
-    %th
-      Против
-    %th{:class => "last"}
-      Создано
-    - @posts.each do |post|
-      %tr
-        %td
-          = link_to post.subject, post_url(post)
-        %td
-          = post.comments.vote_true.size
-        %td
-          = post.comments.vote_false.size
-        %td
-          = l(post.created_at, :format => :default)
+- unless @posts.blank?
+  %table{:class => "table"}
+    %tr
+      %th{:class => "first"}
+        = t("tables.user_post.subject")
+      %th
+        = t("tables.user_post.for_true")
+      %th
+        = t("tables.user_post.for_false")
+      %th{:class => "last"}
+        = t("tables.user_post.created_at")
+      - @posts.each do |post|
+        %tr
+          %td
+            = link_to post.subject, post_url(post)
+          %td
+            = post.comments.vote_true.size
+          %td
+            = post.comments.vote_false.size
+          %td
+            = l(post.created_at, :format => :default)
+- else
+  = t("contents.no_posts")
 = will_paginate @posts
