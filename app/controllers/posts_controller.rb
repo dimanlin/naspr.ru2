@@ -52,5 +52,4 @@ class PostsController < ApplicationController
     @content_rules = Content.find_by_name("rules")
   end
 
-
 end

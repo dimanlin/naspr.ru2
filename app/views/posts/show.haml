@@ -11,9 +11,10 @@
   .golosovat2
     = link_to t("link.voit"), "#", :id => "voit_link"
   .clear
-.voited_form
+.voited_form{:style => @comment.errors.empty? ? "display: none;" : "display: block;"}
   = form_for @comment do |f|
     = f.hidden_field :commentable_id
+    = f.error_messages
     %table
       %tr
         %td
@@ -63,7 +64,7 @@
             .anvertruediv
               - if comment.user_avatar
                 .avatar2
-                  = image_tag comment.user_avatar, :alt => t("avatar")
+                  = image_tag comment.user_avatar, :alt => t("alt.avatar")
               = comment.comment
               .clear
 :javascript
