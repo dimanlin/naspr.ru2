@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+Content.create(:name => "rules", :subject => "", :body => "Можно всё, что позволяет законодательство РФ")
+User.create(:email => "devandart@ya.ru", :password => "gs6cvuq", :confirmation_password => "gs6cvuq").has_role!("admin")
